@@ -13,6 +13,15 @@ import CookieConsent from '../components/CookieConsent.astro';
 	
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
+
+	<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5SG8RHJTTZ"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-5SG8RHJTTZ');
+</script>
 	
 	<body>
 		<Header />
