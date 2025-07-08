@@ -1,0 +1,26 @@
+---
+// src/components/CookieConsent.astro
+---
+<div id="cookie-banner" style="display: none; position: fixed; bottom: 0; width: 100%; background: #333; color: white; padding: 1rem; z-index: 1000;">
+  <p style="margin: 0;">
+    Usiamo i cookie per migliorare la tua esperienza. Continuando a navigare accetti la nostra
+    <a href="/privacy" style="color: #aaf;">Privacy Policy</a>.
+  </p>
+  <button id="accept-cookies" style="margin-left: 1rem;">Accetta</button>
+</div>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function () {
+    const banner = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('accept-cookies');
+
+    if (!localStorage.getItem('cookie-consent')) {
+      banner.style.display = 'block';
+    }
+
+    acceptBtn?.addEventListener('click', function () {
+      localStorage.setItem('cookie-consent', 'true');
+      banner.style.display = 'none';
+    });
+  });
+</script>
